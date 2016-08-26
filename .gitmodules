@@ -1,0 +1,4 @@
+[submodule "horologion"]
+	path = horologion
+	url = git@github.com:anthologion/horologion.git
+	branch = master
