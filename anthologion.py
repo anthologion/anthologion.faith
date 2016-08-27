@@ -1,8 +1,13 @@
 #!/usr/bin/python
+import os, sys
 from flask import Flask
 import pypandoc as pandoc
 from horologion.generate_hour import generate_service
 app = Flask(__name__)
+
+SCRIPT_DIR=os.path.dirname(os.path.abspath(sys.argv[0]))
+if __name__ is not "__main__":
+    SCRIPT_DIR = os.path.dirname(__file__)
 
 @app.route("/services")
 def midnight_service():
@@ -11,10 +16,10 @@ def midnight_service():
 
 @app.route("/")
 def homepage():
-    with open("index.html") as blat:
+    with open(SCRIPT_DIR + "/index.html") as blat:
         index = blat.read()
     return index
 
 if __name__ == "__main__":
-    app.run(host="0.0.0.0", port=int("80"), debug=False)
+    app.run(debug=True)
 
