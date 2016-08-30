@@ -2,7 +2,7 @@
 import os, sys
 from flask import Flask
 import pypandoc as pandoc
-from horologion.generate_hour import generate_service
+from horologion.horologion import generate_service
 app = Flask(__name__)
 
 SCRIPT_DIR=os.path.dirname(os.path.abspath(sys.argv[0]))
